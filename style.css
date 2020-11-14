@@ -1,0 +1,16 @@
+#text{
+    text-align: center; 
+    line-height: 0px;
+}
+span.culoare{
+    color:blue;
+}
+#myCanvas{
+    border: 1px solid black;
+}
+#canvasContainer{
+    text-align: center;
+}
+#photo{
+    text-align: center;
+}
