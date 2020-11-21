@@ -1,16 +1,14 @@
-#text{
-    text-align: center; 
-    line-height: 0px;
+p {
+    background-color: red;
 }
-span.culoare{
-    color:blue;
-}
-#myCanvas{
+
+div {
     border: 1px solid black;
 }
-#canvasContainer{
-    text-align: center;
+
+canvas {
+    border: 2px solid blue;
 }
-#photo{
-    text-align: center;
+body{
+    width: 600px;
 }
