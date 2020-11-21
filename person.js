@@ -20,6 +20,6 @@ export class Person{
         if(this.isWorking)
             console.log(`${this.firstName} ${this.lastName} is working`);
         else
-        console.log(`${this.firstName} ${this.lastName} is not working`);
+            console.log(`${this.firstName} ${this.lastName} is not working`);
     }
 }
