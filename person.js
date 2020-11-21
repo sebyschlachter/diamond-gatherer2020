@@ -6,7 +6,6 @@ export class Person{
         this.car = car;
         this.isWorking = isWorking;
     }
-
     getName(){
         console.log(`First name: ${this.firstName}, Last name: ${this.lastName}`);
     }

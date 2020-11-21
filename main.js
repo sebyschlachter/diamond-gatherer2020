@@ -8,8 +8,6 @@ const context = canvas.getContext('2d');
 const myPet = new Animal('Rocky');
 myPet.canEat();
 
-
-
 /*context.fillStyle = "red";
 context.fillRect(30, 20, 32, 39);*/
 
@@ -42,7 +40,6 @@ button.addEventListener("click", function() {
 
 document.addEventListener("keydown", function(event) {
     context.clearRect(0, 0, 600, 400);
-    
     switch(event.key) {
         case 'ArrowUp': {
             if(georgeY>=0)
@@ -86,7 +83,6 @@ document.addEventListener("keydown", function(event) {
             break;
         }
     }
-
     context.drawImage(mario, 0 * MARIO_WIDTH, 0 * MARIO_HEIGHT, MARIO_WIDTH, MARIO_HEIGHT, marioX, marioY, MARIO_WIDTH, MARIO_HEIGHT);
     context.drawImage(geoerge, 0 * GEORGE_WIDTH, 0 * GEORGE_HEIGHT, GEORGE_WIDTH, GEORGE_HEIGHT, georgeX, georgeY, GEORGE_WIDTH, GEORGE_HEIGHT)
 });
