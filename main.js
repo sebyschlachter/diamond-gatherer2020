@@ -9,7 +9,7 @@ const myPet = new Animal('Rocky');
 myPet.canEat();
 
 /*context.fillStyle = "red";
-context.fillRect(30, 20, 32, 39);*/
+context.fillRect(100, 100, 40, 50);*/
 
 const geoerge = new Image();
 geoerge.src = 'assets/george.png'
@@ -42,12 +42,13 @@ document.addEventListener("keydown", function(event) {
     context.clearRect(0, 0, 600, 400);
     switch(event.key) {
         case 'ArrowUp': {
+            console.log(georgeY+GEORGE_HEIGHT);
             if(georgeY>=0)
                 georgeY -= 10;
             break;
         }
         case 'ArrowDown': {
-            if((georgeY+GEORGE_WIDTH)< canvas.height)
+            if((georgeY+GEORGE_HEIGHT)< canvas.height)
                 georgeY += 10;
             break;
         }
@@ -62,7 +63,6 @@ document.addEventListener("keydown", function(event) {
             break;
         }
         case 'w': {
-            console.log(marioY)
             if(marioY>0)
                 marioY-=10;
             break;
@@ -78,7 +78,7 @@ document.addEventListener("keydown", function(event) {
             break;
         }
         case 's': {
-            if((marioY+MARIO_WIDTH)< canvas.height)
+            if((marioY+MARIO_HEIGHT)< canvas.height)
                 marioY+=10;
             break;
         }
