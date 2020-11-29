@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="style.css">
-        <script src="main.js" type="module"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="/socket.io/socket.io.js" type="module"></script>
+        <script src="js/main.js" type="module"></script>
     </head>
     
     <body>
-        <canvas id="canvasId" width="600px" height="400px"></canvas>
+        <img src="assets/map.png"  class="display-none" id="map-image" />
+        <img src="assets/space-ranger-player.png"  class="display-none" id="space-ranger" />
+        <!--<canvas id="canvasId" width="600px" height="400px"></canvas>
         <button id="myButton" class="myClass"> Click me </button>
-        <div id="myDiv" class="myClass"></div>
+        <div id="myDiv" class="myClass"></div>-->
+        <div id="join-chat">
+            <input type="text" id="user-name-input" placeholder="Enter Your Name"/>
+            <button id="join-chat-button">Join chat</button>
+            <p id="user-name-missing" class="display-none">Enter your name</p>
+        </div>
+        <div id="chat-container" class="display-none">
+            <div id="chat-messages"></div>
+            <div id="users-list-container">
+                <p>Lista Utilizatori:</p>
+                <ul id="users-list"></ul>
+            </div>
+            <input type="text/" id="message" placeholder="type message">
+            <input type="color"  id="message-color">
+            <button id="send-message-button">Send</button>
+            <button id="leave-chat-button">Leave</button>
+        </div>
+        <div id="create-game-container">
+            <input type="text" id="game-name-input" placeholder="enter the game name">
+            <button id="create-game-button">Create game</button>
+            <p id="game-name-missing" class="display-none">Enter your game name</p>
+        </div>
+        <div id="game-container" class="display-none">
+            <canvas id="game-canvas" width="960" height="640"></canvas>
+        </div>
     </body>
 </html>
