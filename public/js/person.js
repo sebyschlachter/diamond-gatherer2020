@@ -1,24 +1,22 @@
-export class Person{
-    constructor(firstName, lastName, age, car, isWorking){
+export class Person {
+    constructor(firstName, lastName, age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.car = car;
-        this.isWorking = isWorking;
     }
-    getName(){
+    getName() {
         console.log(`First name: ${this.firstName}, Last name: ${this.lastName}`);
     }
-    getAge(){
+    getAge() {
         console.log(`Age: ${this.age}`);
     }
-    getCar(){
-        console.log(`Car: ${this.car}`);
+    showDetails() {
+        console.log(`First name: ${this.firstName}, Last name: ${this.lastName}, Age: ${this.age}`);
     }
-    hasJob(){
-        if(this.isWorking)
-            console.log(`${this.firstName} ${this.lastName} is working`);
+    showExperience() {
+        if (this.age > 30)
+            console.log(`First name: ${this.firstName} Last name: ${this.lastName} is not younger anymore`);
         else
-            console.log(`${this.firstName} ${this.lastName} is not working`);
+            console.log(`${this.firstName} ${this.lastName} is very young`);
     }
 }
