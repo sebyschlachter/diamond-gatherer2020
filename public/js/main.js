@@ -120,6 +120,7 @@ const socket = io();
 
 socket.on('menu', function () {
     document.getElementById('menu').classList.remove('display-none');
+    document.getElementById('game-container').classList.add('display-none');
 });
 
 document.getElementById('create-game-button').addEventListener('click', function () {
@@ -167,10 +168,10 @@ socket.on('add-game-to-list', function (options) {
 socket.on('remove-game-from-list', function (gameId) {
     document.getElementById(gameId).classList.add('display-none');
 })
-socket.on('game-over', function (reason) {
+socket.on('game-over', function (imageId, gameId) {
     console.log('game-over');
 
-    context.fillStyle = "#878276";
+    /*context.fillStyle = "#878276";
     context.fillRect(0, 0, 960, 640);
     context.font = "30px Arial";
     context.fillStyle = "red";
@@ -182,7 +183,13 @@ socket.on('game-over', function (reason) {
         document.getElementById('menu').classList.remove('display-none');
         document.getElementById('game-container').classList.add('display-none');
         document.getElementById('go-back-button-container').classList.add('display-none');
-    })
+    })*/
+    context.drawImage(document.getElementById(imageId), 0, 0);
+    document.getElementById('back-to-menu').classList.remove('display-none');
+    document.getElementById('back-to-menu').dataset.gameId = gameId;
+})
+document.getElementById('back-to-menu').addEventListener('click', function() {
+    socket.emit('back-to-menu', document.getElementById('back-to-menu').dataset.gameId);
 })
 document.addEventListener("keydown", function (event) {
     switch (event.key) {
@@ -245,3 +252,4 @@ em2.employeeTitle();
 em2.workStatus();
 em2.showDetails();
 em2.showExperience();
+

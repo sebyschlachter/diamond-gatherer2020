@@ -67,16 +67,18 @@ io.on('connection', function (socket) {
             const playersToRemoveIds = game.players.map(function (player) {
                 return player.socketId;
             })
-            clearInterval(game.interval);
+            clearInterval(game.gameInterval);
             delete games[gameId];
             playersToRemoveIds.forEach(function (playerToRemoveId) {
                 delete players[playerToRemoveId];
             })
-            io.to(gameId).emit('game-over', 'A player disconnected');
-            console.log('game-over');
+            io.to(gameId).emit('game-over', 'player-disconnected', gameId);
         }
-
     })
+    socket.on('back-to-menu', function (gameId) {
+        socket.leave(gameId);
+        socket.emit('menu');
+      })
 })
 function gameLoop(id) {
     if (games[id]) {
