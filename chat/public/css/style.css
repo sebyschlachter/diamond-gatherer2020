@@ -20,12 +20,10 @@
     height: 500px;
     float: left;
     padding: 2px;
-    /*margin-left: 10px;*/
 }
 #leave-chat-button{
     margin-top: 10px;
 }
-
 p{
     line-height: 0px;
     margin-top: 10px;

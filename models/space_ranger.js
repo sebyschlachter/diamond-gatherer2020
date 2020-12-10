@@ -14,4 +14,5 @@ class SpaceRanger extends Player {
         };
     }
 }
+
 module.exports = SpaceRanger;

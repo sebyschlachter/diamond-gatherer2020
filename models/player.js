@@ -32,6 +32,7 @@ class Player {
             ]
         }
     }
+
     startMoving(direction) {
         switch (direction) {
             case 'up':
@@ -49,6 +50,7 @@ class Player {
         }
         this.direction = direction;
     }
+
     move() {
         const newX = this.x + this.dx;
         const newY = this.y + this.dy;
@@ -61,8 +63,10 @@ class Player {
             this.step = Math.floor(this.y / PLAYER_DIM.height) % 2;
         }
     }
+
     stopMoving(axis) {
         this[axis] = 0;
     }
 }
+
 module.exports = Player;

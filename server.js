@@ -29,7 +29,7 @@ io.on('connection', function (socket) {
         if (games[gameId].players.length == 1) {
             socket.emit('add-game-to-list', { gameName: games[gameId].name, gameId: gameId });
         }
-    })
+    });
 
     socket.on('create-game', function (gameName) {
         console.log('new game created');
@@ -43,43 +43,49 @@ io.on('connection', function (socket) {
         games[gameId] = game;
         socket.join(gameId);
         io.to('menu').emit('add-game-to-list', { gameName: gameName, gameId: gameId });
-    })
+    });
+
     socket.on('start-moving-player', function (direction) {
         if (players[socket.id]) {
             players[socket.id].startMoving(direction);
         }
-    })
+    });
+
     socket.on('stop-moving-player', function (axis) {
         if (players[socket.id]) {
             players[socket.id].stopMoving(axis);
         }
-    })
+    });
+
     socket.on('join-game', function (gameId) {
         players[socket.id] = new PinkLady({ gameId: gameId, socketId: socket.id });
         games[gameId].players.push(players[socket.id]);
         socket.join(gameId);
         io.to('menu').emit('remove-game-from-list', gameId);
-    })
+    });
+
     socket.on('disconnect', function () {
         if (players[socket.id]) {
             const gameId = players[socket.id].gameId;
             const game = games[gameId];
             const playersToRemoveIds = game.players.map(function (player) {
                 return player.socketId;
-            })
+            });
             clearInterval(game.gameInterval);
             delete games[gameId];
             playersToRemoveIds.forEach(function (playerToRemoveId) {
                 delete players[playerToRemoveId];
-            })
+            });
             io.to(gameId).emit('game-over', 'player-disconnected', gameId);
         }
-    })
+    });
+
     socket.on('back-to-menu', function (gameId) {
         socket.leave(gameId);
         socket.emit('menu');
-      })
-})
+      });
+});
+
 function gameLoop(id) {
     if (games[id]) {
         games[id].update();

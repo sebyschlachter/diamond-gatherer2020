@@ -4,7 +4,6 @@ const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
-
 http.listen(5050, function() {
     console.log('[Server started at port 5050]');
 });
@@ -17,7 +16,6 @@ app.use(express.static(__dirname + "/public"));
 
 io.on('connection', function(socket) {
     console.log('[Socket connected: ]' + socket.id);
-
     socket.on('join-chat', function(username) {
         console.log('user chat ', socket.id, username);
         chatUsers[socket.id] = username;
@@ -38,11 +36,7 @@ io.on('connection', function(socket) {
         socket.emit('menu');
         io.to('chat').emit('refresh-user-list', chatUsers);
     });
-
     
 })
 
-
 const chatUsers = {};
-
-

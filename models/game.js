@@ -7,14 +7,17 @@ class Game {
         this.name = options.name;
         this.start();
     }
+
     start() {
         const that = this;
         this.gameInterval = setInterval(function () { server.gameLoop(that.id) }, 1000 / 60);
     }
+
     update() {
         this.players.forEach(function (player) {
             player.move();
         })
     }
 }
+
 module.exports = Game;

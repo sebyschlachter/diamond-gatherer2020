@@ -14,4 +14,5 @@ class PinkLady extends Player {
         };
     }
 }
+
 module.exports = PinkLady;
